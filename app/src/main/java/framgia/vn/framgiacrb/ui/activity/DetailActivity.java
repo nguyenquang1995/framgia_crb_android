@@ -46,7 +46,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         int eventId = getIntent().getIntExtra(Constant.Intent.INTENT_ID_EVENT,
             Constant.Number.INVALID_INDEX);
         Date startTime = (Date) getIntent().getSerializableExtra(Constant.Intent.INTENT_START_TIME);
-        Date finishTime = (Date) getIntent().getSerializableExtra(Constant.Intent.INTENT_FINISH_TIME);
+        Date finishTime =
+            (Date) getIntent().getSerializableExtra(Constant.Intent.INTENT_FINISH_TIME);
         Event eventParent = RealmController.getInstance().getEventById(eventId);
         if (eventParent == null) {
             return;
@@ -160,7 +161,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         if (v.getId() == R.id.fab_edit) {
             Intent intent = new Intent(DetailActivity.this, EditActivity.class);
-            intent.putExtra(Constant.Intent.INTENT_ID_EVENT, getIntent().getStringExtra(Constant.Intent.INTENT_ID_EVENT));
+            intent.putExtra(Constant.Intent.INTENT_ID_EVENT,
+                getIntent().getStringExtra(Constant.Intent.INTENT_ID_EVENT));
             startActivity(intent);
         }
     }
